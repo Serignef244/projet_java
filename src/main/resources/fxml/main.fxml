@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="client.controller.MainController"
+            fx:id="panneauRacine" styleClass="app-root">
+    <top>
+        <VBox spacing="10.0" styleClass="top-bar app-shell-header top-shell">
+            <padding>
+                <Insets top="14.0" right="14.0" bottom="14.0" left="14.0"/>
+            </padding>
+            <HBox spacing="12.0" alignment="CENTER_LEFT" styleClass="top-row">
+                <FontIcon iconLiteral="fas-comments" iconSize="18" iconColor="#007EA7"/>
+                <VBox spacing="2.0">
+                    <Label text="Messagerie Association" styleClass="subtitle-text app-title"/>
+                    <Label text="Echanges prives en temps reel" styleClass="caption-text"/>
+                </VBox>
+                <Label fx:id="labelConnexion" text="Etat: EN LIGNE" styleClass="status-pill status-online"/>
+                <HBox HBox.hgrow="ALWAYS"/>
+                <Label fx:id="labelIdentite" text="Connecte:" styleClass="caption-text"/>
+                <Label fx:id="labelBadgeRole" text="MEMBRE" styleClass="role-badge role-membre"/>
+            </HBox>
+            <FlowPane hgap="8.0" vgap="8.0" alignment="CENTER_RIGHT" prefWrapLength="560.0" styleClass="actions-row">
+                <Button text="Rafraichir" styleClass="top-action-button refresh-button" onAction="#rafraichirListeDesMembres"/>
+                <Button text="Theme" styleClass="top-action-button theme-button" onAction="#basculerEntreThemeClairEtSombre"/>
+                <Button fx:id="boutonReconnexion" text="Reconnexion" styleClass="top-action-button reconnect-button" onAction="#reconnecterAuServeur"/>
+                <Button text="Deconnexion" styleClass="danger-button" onAction="#deconnecterUtilisateur"/>
+            </FlowPane>
+        </VBox>
+    </top>
+
+    <left>
+        <VBox fx:id="panneauMembres" spacing="10.0" prefWidth="300.0" styleClass="card slide-container sidebar-pane">
+            <padding>
+                <Insets top="14.0" right="14.0" bottom="14.0" left="14.0"/>
+            </padding>
+            <BorderPane.margin>
+                <Insets top="12.0" right="10.0" bottom="12.0" left="12.0"/>
+            </BorderPane.margin>
+            <HBox spacing="8.0" alignment="CENTER_LEFT">
+                <Label text="Membres" styleClass="subtitle-text panel-title"/>
+                <Label fx:id="labelCompteMembres" text="0" styleClass="count-chip"/>
+                <HBox HBox.hgrow="ALWAYS"/>
+                <Button fx:id="boutonBasculerMembres" text="Masquer" styleClass="ghost-button" onAction="#afficherOuMasquerPanneauMembres"/>
+            </HBox>
+            <TextField fx:id="champRecherche" promptText="Chercher un membre..." styleClass="input-field search-field"
+                       onKeyReleased="#rechercherDansListeMembres"/>
+            <ListView fx:id="listeMembres" VBox.vgrow="ALWAYS" styleClass="members-list"/>
+            <Label fx:id="labelRetour" styleClass="caption-text feedback-strip"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox spacing="10.0" styleClass="card slide-container main-slide chat-pane">
+            <padding>
+                <Insets top="14.0" right="14.0" bottom="14.0" left="14.0"/>
+            </padding>
+            <BorderPane.margin>
+                <Insets top="12.0" right="10.0" bottom="12.0" left="10.0"/>
+            </BorderPane.margin>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                <Label fx:id="labelUtilisateurSelectionne" text="Conversation avec: -" styleClass="subtitle-text conversation-title"/>
+                <HBox HBox.hgrow="ALWAYS"/>
+                <Label fx:id="labelSaisie" text="" styleClass="caption-text typing-chip"/>
+            </HBox>
+            <Label fx:id="labelBanniereHorsLigne" text="Mode hors ligne" styleClass="offline-banner"/>
+            <ListView fx:id="listeMessages" VBox.vgrow="ALWAYS" styleClass="message-list"/>
+            <HBox spacing="8.0" styleClass="composer-bar">
+                <TextField fx:id="champMessage" promptText="Ecrivez votre message..." styleClass="input-field composer-field" HBox.hgrow="ALWAYS"/>
+                <Button fx:id="boutonEnvoyer" text="Envoyer" styleClass="primary-button send-button" onAction="#envoyerMessageAuDestinataire"/>
+            </HBox>
+        </VBox>
+    </center>
+
+    <right>
+        <VBox fx:id="panneauOrganisateur" spacing="8.0" prefWidth="280.0" styleClass="card slide-container admin-pane">
+            <padding>
+                <Insets top="14.0" right="14.0" bottom="14.0" left="14.0"/>
+            </padding>
+            <BorderPane.margin>
+                <Insets top="12.0" right="12.0" bottom="12.0" left="10.0"/>
+            </BorderPane.margin>
+            <Label text="Gestion des membres" styleClass="subtitle-text panel-title"/>
+            <ListView fx:id="listeGestionMembres" VBox.vgrow="ALWAYS" styleClass="members-list"/>
+        </VBox>
+    </right>
+</BorderPane>
+
