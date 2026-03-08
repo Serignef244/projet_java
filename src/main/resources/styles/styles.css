@@ -1,0 +1,490 @@
+.root {
+    -fx-font-family: "Poppins", "Segoe UI", sans-serif;
+    -fx-background-color: #f6f8ff;
+    -bg: #f6f8ff;
+    -bg-deep: #eef1ff;
+    -surface: #ffffff;
+    -surface-soft: #f8f9ff;
+    -surface-stroke: #d7def7;
+    -text-main: #1e2440;
+    -text-muted: #66719a;
+    -primary: #3a57e8;
+    -primary-soft: #6b4bff;
+    -secondary: #5d74ff;
+    -secondary-soft: #816dff;
+    -danger: #df4f78;
+    -danger-soft: #f47098;
+    -ok: #2e9f83;
+    -accent: #7b4cff;
+}
+
+.root.dark-mode {
+    -fx-background-color: #101427;
+    -bg: #101427;
+    -bg-deep: #171d35;
+    -surface: #1e2645;
+    -surface-soft: #242f53;
+    -surface-stroke: #3b4b7a;
+    -text-main: #eef1ff;
+    -text-muted: #b4bfdc;
+    -primary: #6e88ff;
+    -primary-soft: #8f75ff;
+    -secondary: #7f96ff;
+    -secondary-soft: #9d8eff;
+    -danger: #ff88ad;
+    -danger-soft: #ff9ec0;
+    -ok: #7edaba;
+    -accent: #b59cff;
+}
+
+.app-root {
+    -fx-background-color:
+            radial-gradient(center 10% 5%, radius 140%, rgba(58,87,232,0.17), transparent),
+            radial-gradient(center 95% 95%, radius 130%, rgba(123,76,255,0.14), transparent),
+            linear-gradient(135deg, #f6f8ff 0%, #eef1ff 100%);
+}
+
+.dark-mode.app-root {
+    -fx-background-color:
+            radial-gradient(center 10% 5%, radius 140%, rgba(110,136,255,0.2), transparent),
+            radial-gradient(center 95% 95%, radius 130%, rgba(181,156,255,0.16), transparent),
+            linear-gradient(135deg, #101427 0%, #171d35 100%);
+}
+
+.auth-root {
+    -fx-alignment: center;
+}
+
+.card {
+    -fx-background-color: -surface;
+    -fx-border-color: -surface-stroke;
+    -fx-border-width: 1.5;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(26,35,50,0.15), 20, 0.15, 0, 4);
+}
+
+.auth-card {
+    -fx-background-color: linear-gradient(to bottom, derive(-surface, 3%), -surface-soft);
+    -fx-effect: dropshadow(gaussian, rgba(58,87,232,0.2), 25, 0.2, 0, 5);
+}
+
+.slide-container {
+    -fx-background-insets: 0;
+    -fx-border-color: -surface-stroke;
+    -fx-border-width: 1.2;
+}
+
+.main-slide {
+    -fx-border-color: derive(-primary, 35%);
+    -fx-border-width: 1.6;
+}
+
+.title-text {
+    -fx-font-size: 30px;
+    -fx-font-weight: 800;
+    -fx-text-fill: -text-main;
+}
+
+.subtitle-text {
+    -fx-font-size: 19px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -text-main;
+}
+
+.auth-title {
+    -fx-font-size: 33px;
+}
+
+.auth-subtitle {
+    -fx-font-size: 24px;
+}
+
+.auth-kicker {
+    -fx-font-size: 11px;
+    -fx-font-weight: 800;
+    -fx-text-fill: -primary;
+    -fx-background-color: rgba(58,87,232,0.14);
+    -fx-background-radius: 999;
+    -fx-padding: 5 12 5 12;
+    -fx-effect: dropshadow(gaussian, rgba(59,125,214,0.2), 6, 0.2, 0, 1);
+}
+
+.caption-text {
+    -fx-font-size: 12px;
+    -fx-font-weight: 500;
+    -fx-text-fill: -text-muted;
+}
+
+.top-bar {
+    -fx-background-color: linear-gradient(to bottom, derive(-surface, 3%), -surface);
+    -fx-border-color: transparent transparent -surface-stroke transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.top-shell {
+    -fx-background-radius: 0 0 12 12;
+}
+
+.app-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: 800;
+}
+
+.panel-title {
+    -fx-font-size: 18px;
+}
+
+.feedback-strip {
+    -fx-padding: 6 9 6 9;
+    -fx-background-color: rgba(96,112,129,0.11);
+    -fx-background-radius: 9;
+}
+
+.count-chip {
+    -fx-padding: 3 9 3 9;
+    -fx-background-color: rgba(47,95,152,0.14);
+    -fx-text-fill: -primary;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 999;
+}
+
+.typing-chip {
+    -fx-padding: 4 9 4 9;
+    -fx-background-color: rgba(123,76,255,0.16);
+    -fx-background-radius: 999;
+}
+
+.role-badge {
+    -fx-background-radius: 999;
+    -fx-padding: 5 12 5 12;
+    -fx-font-size: 11px;
+    -fx-font-weight: 800;
+    -fx-text-fill: white;
+}
+
+.role-organisateur {
+    -fx-background-color: linear-gradient(135deg, #c89a3f 0%, #ddb05a 100%);
+    -fx-effect: dropshadow(gaussian, rgba(200,154,63,0.35), 8, 0.25, 0, 2);
+}
+
+.role-membre {
+    -fx-background-color: linear-gradient(135deg, #3a57e8 0%, #6b4bff 100%);
+    -fx-effect: dropshadow(gaussian, rgba(59,125,214,0.35), 8, 0.25, 0, 2);
+}
+
+.role-benevole {
+    -fx-background-color: linear-gradient(135deg, #5d74ff 0%, #816dff 100%);
+    -fx-effect: dropshadow(gaussian, rgba(92,143,106,0.35), 8, 0.25, 0, 2);
+}
+
+.primary-button {
+    -fx-background-color: linear-gradient(135deg, #3a57e8 0%, #6b4bff 100%);
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-padding: 12 22 12 22;
+    -fx-background-radius: 12;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(59,125,214,0.35), 12, 0.3, 0, 3);
+}
+
+.primary-button:hover {
+    -fx-background-color: linear-gradient(135deg, derive(-primary, 10%) 0%, derive(-primary-soft, 10%) 100%);
+    -fx-effect: dropshadow(gaussian, rgba(59,125,214,0.45), 15, 0.35, 0, 4);
+    -fx-scale-y: 1.02;
+    -fx-scale-x: 1.02;
+}
+
+.ghost-button {
+    -fx-background-color: linear-gradient(to bottom, derive(-surface-soft, 4%), -surface-soft);
+    -fx-border-color: -surface-stroke;
+    -fx-border-width: 1.5;
+    -fx-text-fill: -text-main;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-padding: 10 18 10 18;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(26,35,50,0.08), 8, 0.1, 0, 2);
+}
+
+.ghost-button:hover {
+    -fx-background-color: linear-gradient(to bottom, derive(-surface-soft, 8%), derive(-surface-soft, 2%));
+    -fx-border-color: derive(-surface-stroke, -10%);
+    -fx-scale-y: 1.02;
+    -fx-scale-x: 1.02;
+}
+
+.top-action-button {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 8 14 8 14;
+    -fx-background-radius: 11;
+    -fx-border-radius: 11;
+    -fx-cursor: hand;
+    -fx-text-fill: white;
+}
+
+.refresh-button {
+    -fx-background-color: linear-gradient(135deg, #3a57e8 0%, #6b4bff 100%);
+    -fx-effect: dropshadow(gaussian, rgba(59,125,214,0.3), 10, 0.25, 0, 2);
+}
+
+.refresh-button:hover {
+    -fx-background-color: linear-gradient(135deg, derive(-primary, 10%) 0%, derive(-primary-soft, 10%) 100%);
+    -fx-scale-y: 1.02;
+    -fx-scale-x: 1.02;
+}
+
+.theme-button {
+    -fx-background-color: linear-gradient(135deg, #5362d7 0%, #7a63ff 100%);
+    -fx-effect: dropshadow(gaussian, rgba(83,98,215,0.34), 10, 0.25, 0, 2);
+}
+
+.theme-button:hover {
+    -fx-background-color: linear-gradient(135deg, derive(#5362d7, 10%) 0%, derive(#7a63ff, 10%) 100%);
+    -fx-scale-y: 1.02;
+    -fx-scale-x: 1.02;
+}
+
+.reconnect-button {
+    -fx-background-color: linear-gradient(135deg, #5d74ff 0%, #816dff 100%);
+    -fx-effect: dropshadow(gaussian, rgba(92,143,106,0.3), 10, 0.25, 0, 2);
+}
+
+.reconnect-button:hover {
+    -fx-background-color: linear-gradient(135deg, derive(-secondary, 10%) 0%, derive(-secondary-soft, 10%) 100%);
+    -fx-scale-y: 1.02;
+    -fx-scale-x: 1.02;
+}
+
+.danger-button {
+    -fx-background-color: linear-gradient(135deg, #df4f78 0%, #f47098 100%);
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-padding: 10 16 10 16;
+    -fx-background-radius: 12;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(214,79,102,0.35), 10, 0.3, 0, 2);
+}
+
+.danger-button:hover {
+    -fx-background-color: linear-gradient(135deg, derive(-danger, 10%) 0%, derive(-danger-soft, 10%) 100%);
+    -fx-scale-y: 1.02;
+    -fx-scale-x: 1.02;
+}
+
+.sidebar-pane,
+.chat-pane,
+.admin-pane {
+    -fx-background-color: linear-gradient(to bottom, derive(-surface, 3%), -surface-soft);
+    -fx-border-width: 1.5;
+    -fx-border-radius: 18;
+    -fx-background-radius: 18;
+}
+
+.sidebar-pane {
+    -fx-border-color: derive(-primary, 40%);
+    -fx-effect: dropshadow(gaussian, rgba(59,125,214,0.12), 15, 0.12, 0, 3);
+}
+
+.chat-pane {
+    -fx-border-color: derive(-primary-soft, 40%);
+    -fx-effect: dropshadow(gaussian, rgba(90,148,230,0.15), 18, 0.15, 0, 4);
+}
+
+.admin-pane {
+    -fx-border-color: derive(-accent, 40%);
+    -fx-effect: dropshadow(gaussian, rgba(123,76,255,0.16), 15, 0.12, 0, 3);
+}
+
+.conversation-title {
+    -fx-font-size: 21px;
+    -fx-font-weight: 800;
+}
+
+.input-field, .combo-box {
+    -fx-background-color: derive(-surface-soft, 3%);
+    -fx-border-color: -surface-stroke;
+    -fx-border-width: 1.5;
+    -fx-text-fill: -text-main;
+    -fx-prompt-text-fill: derive(-text-muted, 8%);
+    -fx-padding: 11 13 11 13;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-font-size: 13px;
+}
+
+.input-field:focused, .combo-box:focused {
+    -fx-border-color: -primary;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(58,87,232,0.30), 12, 0.2, 0, 2);
+    -fx-background-color: -surface;
+}
+
+.search-field {
+    -fx-background-color: linear-gradient(to right, derive(-surface-soft, 5%), -surface-soft);
+}
+
+.composer-bar {
+    -fx-background-color: rgba(255,255,255,0.75);
+    -fx-border-color: -surface-stroke;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+    -fx-padding: 10;
+    -fx-effect: dropshadow(gaussian, rgba(26,35,50,0.08), 8, 0.1, 0, 2);
+}
+
+.status-pill {
+    -fx-padding: 4 10 4 10;
+    -fx-background-radius: 999;
+    -fx-font-size: 11px;
+    -fx-font-weight: 800;
+}
+
+.status-online {
+    -fx-background-color: rgba(47,140,85,0.18);
+    -fx-text-fill: -ok;
+}
+
+.status-offline {
+    -fx-background-color: rgba(96,112,129,0.22);
+    -fx-text-fill: -text-muted;
+}
+
+.list-view,
+.list-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.members-list .list-cell {
+    -fx-padding: 3 2 3 2;
+}
+
+.member-row {
+    -fx-background-color: linear-gradient(to right, derive(-surface-soft, 6%), -surface-soft);
+    -fx-background-radius: 14;
+    -fx-padding: 10;
+    -fx-border-color: derive(-surface-stroke, -3%);
+    -fx-border-width: 1.5;
+    -fx-border-radius: 14;
+    -fx-effect: dropshadow(gaussian, rgba(26,35,50,0.06), 6, 0.08, 0, 1);
+}
+
+.member-row:hover {
+    -fx-background-color: linear-gradient(to right, derive(-surface-soft, 10%), derive(-surface-soft, 2%));
+    -fx-border-color: derive(-primary, 20%);
+    -fx-effect: dropshadow(gaussian, rgba(59,125,214,0.15), 8, 0.12, 0, 2);
+}
+
+.members-list .list-cell:selected .member-row {
+    -fx-background-color: linear-gradient(to right, rgba(47,95,152,0.14), rgba(63,116,181,0.14));
+}
+
+.avatar {
+    -fx-min-width: 36;
+    -fx-min-height: 36;
+    -fx-max-width: 36;
+    -fx-max-height: 36;
+    -fx-alignment: center;
+    -fx-background-radius: 999;
+    -fx-background-color: linear-gradient(135deg, #3a57e8 0%, #7b4cff 100%);
+    -fx-text-fill: white;
+    -fx-font-weight: 800;
+    -fx-font-size: 13px;
+    -fx-effect: dropshadow(gaussian, rgba(59,125,214,0.3), 8, 0.2, 0, 2);
+}
+
+.helper-inline {
+    -fx-padding: 8;
+    -fx-background-color: rgba(58,87,232,0.08);
+    -fx-background-radius: 10;
+}
+
+.message-list {
+    -fx-background-color: transparent;
+}
+
+.message-bubble-mine {
+    -fx-background-color: linear-gradient(135deg, #3a57e8 0%, #6b4bff 100%);
+    -fx-background-radius: 18 18 4 18;
+    -fx-padding: 12 16 12 16;
+    -fx-effect: dropshadow(gaussian, rgba(59,125,214,0.3), 12, 0.2, 0, 3);
+}
+
+.message-bubble-other {
+    -fx-background-color: derive(-surface-soft, 4%);
+    -fx-border-color: -surface-stroke;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 18 18 18 4;
+    -fx-background-radius: 18 18 18 4;
+    -fx-padding: 12 16 12 16;
+    -fx-effect: dropshadow(gaussian, rgba(26,35,50,0.1), 8, 0.1, 0, 2);
+}
+
+.message-text-mine {
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+}
+
+.message-text-other {
+    -fx-text-fill: -text-main;
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+}
+
+.offline-banner {
+    -fx-background-color: rgba(214,79,102,0.18);
+    -fx-text-fill: -danger;
+    -fx-padding: 9 13 9 13;
+    -fx-background-radius: 12;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-effect: dropshadow(gaussian, rgba(214,79,102,0.2), 8, 0.15, 0, 2);
+}
+
+.phone-mode .title-text {
+    -fx-font-size: 23px;
+}
+
+.phone-mode .subtitle-text {
+    -fx-font-size: 15px;
+}
+
+.phone-mode .app-title {
+    -fx-font-size: 16px;
+}
+
+.phone-mode .conversation-title {
+    -fx-font-size: 16px;
+}
+
+.phone-mode .caption-text {
+    -fx-font-size: 11px;
+}
+
+.phone-mode .card {
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+}
+
+.phone-mode .top-action-button,
+.phone-mode .danger-button,
+.phone-mode .ghost-button,
+.phone-mode .primary-button {
+    -fx-font-size: 11px;
+    -fx-padding: 7 10 7 10;
+}
+
+.phone-mode .input-field,
+.phone-mode .combo-box {
+    -fx-padding: 7 8 7 8;
+}
+
