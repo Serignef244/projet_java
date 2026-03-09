@@ -1,0 +1,375 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [ 5 0 R 7 0 R 9 0 R 11 0 R ] /Count 4 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Length 2104 >>
+stream
+BT
+/F1 10 Tf
+50 790 Td
+14 TL
+(EXPlication DU PROJET JAVA - GUIDE DE PRESENTATION) Tj
+T*
+() Tj
+T*
+(1\) VUE GLOBALE) Tj
+T*
+(Le projet est une application de messagerie interne avec deux parties:) Tj
+T*
+(- Client JavaFX \(interfaces, controles, interactions utilisateur\)) Tj
+T*
+(- Serveur Java \(authentification, sessions, messages, persistance\)) Tj
+T*
+() Tj
+T*
+(Flux principal:) Tj
+T*
+(1. L'utilisateur ouvre l'application \(welcome\)) Tj
+T*
+(2. Il se connecte ou s'inscrit) Tj
+T*
+(3. Le client ouvre une connexion socket au serveur) Tj
+T*
+(4. Le serveur valide, envoie la liste des utilisateurs, puis les messages) Tj
+T*
+(5. Le client affiche l'historique et les nouveaux messages en temps reel) Tj
+T*
+() Tj
+T*
+(2\) PARTIES CLIENT A EXPLIQUER) Tj
+T*
+() Tj
+T*
+(A. AppContext.java) Tj
+T*
+(Role:) Tj
+T*
+(- Centralise l'etat global client \(utilisateur connecte, role, theme, connexion reseau\)) Tj
+T*
+(- Gere la navigation entre ecrans JavaFX) Tj
+T*
+(- Applique le CSS et l'animation de transition) Tj
+T*
+(A expliquer en oral:) Tj
+T*
+(- Pourquoi un contexte global simplifie la navigation) Tj
+T*
+(- Comment showWelcome/showLogin/showRegister/showMain chargent les FXML) Tj
+T*
+(- Comment toggleTheme applique le mode sombre) Tj
+T*
+() Tj
+T*
+(B. WelcomeController.java) Tj
+T*
+(Role:) Tj
+T*
+(- Ecran d'accueil) Tj
+T*
+(- Boutons de navigation vers connexion/inscription) Tj
+T*
+(A expliquer:) Tj
+T*
+(- Controleur minimal: il delegue tout a AppContext) Tj
+T*
+() Tj
+T*
+(C. LoginController.java) Tj
+T*
+(Role:) Tj
+T*
+(- Gere la connexion utilisateur) Tj
+T*
+(- Valide les champs avant appel serveur) Tj
+T*
+(- Recoit les evenements serveur \(success, error, disconnect\)) Tj
+T*
+(Points clefs:) Tj
+T*
+(- onLogin\(\): validation + envoi de la requete login) Tj
+T*
+(- ensureConnected\(\): cree/reutilise la connexion socket) Tj
+T*
+(- onLoginSuccess\(\): passe a l'ecran principal et transfere le listener) Tj
+T*
+(- shake\(\): feedback visuel en cas d'erreur) Tj
+T*
+() Tj
+T*
+(D. RegisterController.java) Tj
+T*
+(Role:) Tj
+T*
+(- Gere l'inscription) Tj
+T*
+(- Verifie coherence des champs \(mot de passe/confimation\)) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Length 2056 >>
+stream
+BT
+/F1 10 Tf
+50 790 Td
+14 TL
+(Points clefs:) Tj
+T*
+(- onSubmitRegistration\(\): validation + envoi REGISTER) Tj
+T*
+(- onRegisterSuccess\(\): retour login avec message flash) Tj
+T*
+() Tj
+T*
+(E. MainController.java) Tj
+T*
+(Role:) Tj
+T*
+(- Coeur de la messagerie) Tj
+T*
+(- Gere les membres, conversations, envoi/reception, mode offline et reconnexion) Tj
+T*
+(Sections importantes a presenter:) Tj
+T*
+(- initialize\(\): prepare l'ecran et les listeners) Tj
+T*
+(- onSendMessage\(\): verifications metier avant envoi) Tj
+T*
+(- onUsersReceived\(\): met a jour la liste des membres) Tj
+T*
+(- onMessageReceived\(\): route le message vers la bonne conversation) Tj
+T*
+(- onHistoryReceived\(\): recharge l'historique d'un interlocuteur) Tj
+T*
+(- onDisconnected\(\) + attemptReconnect\(\): resilence reseau) Tj
+T*
+(- configureUserList\(\)/configureMessageList\(\): rendu personnalise des ListView) Tj
+T*
+(- applyResponsiveLayout\(\): adaptation mobile/tablette/desktop) Tj
+T*
+() Tj
+T*
+(3\) PARTIES INTERFACE \(FXML/CSS\)) Tj
+T*
+() Tj
+T*
+(A. FXML) Tj
+T*
+(- fxml/welcome.fxml: ecran d'entree) Tj
+T*
+(- fxml/login.fxml: formulaire de connexion) Tj
+T*
+(- fxml/register.fxml: formulaire inscription) Tj
+T*
+(- fxml/main.fxml: structure a 3 panneaux \(membres, chat, administration\)) Tj
+T*
+() Tj
+T*
+(B. CSS) Tj
+T*
+(- styles/app.css: theme global \(couleurs, cartes, boutons, bulles, responsive\)) Tj
+T*
+(A expliquer:) Tj
+T*
+(- Variables de theme dans .root) Tj
+T*
+(- Class dark-mode) Tj
+T*
+(- Classes card/slide-container pour la separation visuelle des panneaux) Tj
+T*
+() Tj
+T*
+(4\) PARTIES RESEAU ET PROTOCOLE) Tj
+T*
+() Tj
+T*
+(A. ServerConnection.java \(client\)) Tj
+T*
+(Role:) Tj
+T*
+(- Ouvre la socket) Tj
+T*
+(- Envoie les commandes protocole \(login, register, message, users, history\)) Tj
+T*
+(- Lit les reponses serveur et notifie le listener) Tj
+T*
+() Tj
+T*
+(B. ServerEventListener.java) Tj
+T*
+(Role:) Tj
+T*
+(- Interface de callbacks utilises par les controllers) Tj
+T*
+(Exemples:) Tj
+T*
+(- onLoginSuccess) Tj
+T*
+(- onUsersReceived) Tj
+T*
+(- onMessageReceived) Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 1985 >>
+stream
+BT
+/F1 10 Tf
+50 790 Td
+14 TL
+(- onDisconnected) Tj
+T*
+() Tj
+T*
+(C. Protocol.java) Tj
+T*
+(Role:) Tj
+T*
+(- Definit les codes de commandes/evenements partages client-serveur) Tj
+T*
+() Tj
+T*
+(5\) PARTIES SERVEUR A EXPLIQUER) Tj
+T*
+() Tj
+T*
+(A. MainServeur.java) Tj
+T*
+(- Demarrage du serveur et ecoute sur le port) Tj
+T*
+() Tj
+T*
+(B. ClientHandler.java) Tj
+T*
+(- Un thread par client) Tj
+T*
+(- Parse les commandes recues) Tj
+T*
+(- Appelle les services metier) Tj
+T*
+() Tj
+T*
+(C. Services) Tj
+T*
+(- AuthService: login/inscription) Tj
+T*
+(- MessageService: envoi, historique, statut de message) Tj
+T*
+(- SessionRegistry: clients connectes et routage des notifications) Tj
+T*
+() Tj
+T*
+(D. DAO + Model + JPA) Tj
+T*
+(- UserRepository / MessageRepository: acces base) Tj
+T*
+(- User / Message: entites JPA) Tj
+T*
+(- persistence.xml: configuration JPA) Tj
+T*
+() Tj
+T*
+(6\) PLAN D'EXPLICATION ORALE \(PROPOSE\)) Tj
+T*
+() Tj
+T*
+(1. Architecture generale \(client, serveur, base\)) Tj
+T*
+(2. Navigation ecrans et role de AppContext) Tj
+T*
+(3. Cycle connexion utilisateur \(LoginController\)) Tj
+T*
+(4. Cycle message \(MainController + ServerConnection\)) Tj
+T*
+(5. Gestion d'erreur: offline/reconnexion) Tj
+T*
+(6. Persistance et historique \(MessageService + Repository\)) Tj
+T*
+(7. UI/UX: FXML + CSS + responsive) Tj
+T*
+() Tj
+T*
+(7\) POINTS TECHNIQUES A RETENIR) Tj
+T*
+() Tj
+T*
+(- Separation des responsabilites: FXML \(vue\), Controller \(logique UI\), Service/DAO \(metier\)) Tj
+T*
+(- Programmation evenementielle avec callbacks listener) Tj
+T*
+(- Synchronisation UI JavaFX avec Platform.runLater quand necessaire) Tj
+T*
+(- Robustesse reseau: mode offline + tentative de reconnexion) Tj
+T*
+(- Presentation propre: classes CSS reutilisables et theme clair/sombre) Tj
+T*
+() Tj
+T*
+(8\) FICHIERS COMMENTES DANS CETTE VERSION) Tj
+T*
+() Tj
+T*
+(- src/main/java/org/example/projet_java/client/AppContext.java) Tj
+T*
+(- src/main/java/org/example/projet_java/client/controller/WelcomeController.java) Tj
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 8 0 R >>
+endobj
+10 0 obj
+<< /Length 325 >>
+stream
+BT
+/F1 10 Tf
+50 790 Td
+14 TL
+(- src/main/java/org/example/projet_java/client/controller/LoginController.java) Tj
+T*
+(- src/main/java/org/example/projet_java/client/controller/RegisterController.java) Tj
+T*
+(- src/main/java/org/example/projet_java/client/controller/MainController.java) Tj
+T*
+() Tj
+T*
+(FIN DU DOCUMENT) Tj
+ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 10 0 R >>
+endobj
+xref
+0 12
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000136 00000 n 
+0000000206 00000 n 
+0000002361 00000 n 
+0000002487 00000 n 
+0000004594 00000 n 
+0000004720 00000 n 
+0000006756 00000 n 
+0000006882 00000 n 
+0000007258 00000 n 
+trailer
+<< /Size 12 /Root 1 0 R >>
+startxref
+7386
+%%EOF

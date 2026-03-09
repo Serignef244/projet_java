@@ -1,0 +1,42 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package "model" {
+  enum Role {
+    ORGANISATEUR
+    MEMBRE
+    BENEVOLE
+  }
+
+  enum Status {
+    ONLINE
+    OFFLINE
+  }
+
+  enum MessageStatus {
+    ENVOYE
+    RECU
+    LU
+  }
+
+  class User {
+    - id: Long
+    - username: String
+    - password: String
+    - role: Role
+    - status: Status
+    - dateCreation: LocalDateTime
+  }
+
+  class Message {
+    - id: Long
+    - content: String
+    - timestamp: LocalDateTime
+    - status: MessageStatus
+  }
+}
+
+User "1" <-- "0..*" Message : sender
+User "1" <-- "0..*" Message : recipient
+
+@enduml

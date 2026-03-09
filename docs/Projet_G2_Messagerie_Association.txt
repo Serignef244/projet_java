@@ -1,0 +1,77 @@
+Projet G2 — Messagerie pour Associations & Événements 
+Interne — 1 
+Interne 
+Application de Messagerie Instantanée 
+pour Associations & Événements — G2 
+Interne 
+1. Contexte 
+Une association souhaite mettre en place une application de messagerie interne permettant 
+à ses membres de communiquer en temps réel via un système client-serveur. L'application 
+doit permettre l'authentification des utilisateurs, l'échange de messages en temps réel, la 
+sauvegarde des données en base et l'affichage des conversations via JavaFX. 
+2. Technologies à utiliser 
+• Java 17 ou supérieur 
+• JavaFX pour l'interface graphique 
+• Sockets Java (ServerSocket, Socket) 
+• Hibernate/JPA pour la persistance 
+• Base de données MySQL ou PostgreSQL 
+• Programmation Orientée Objet (POO) 
+3. Architecture 
+L'application doit suivre une architecture client-serveur. Le serveur gère les connexions, les 
+membres actifs, l'envoi et la réception des messages ainsi que l'accès à la base de 
+données. Le client JavaFX permet la connexion, l'affichage des membres et l'échange de 
+messages. 
+4. Fonctionnalités principales 
+Gestion des comptes 
+• Inscription avec rôle (ORGANISATEUR, MEMBRE, BENEVOLE) 
+• Connexion et déconnexion 
+• Gestion du statut (en ligne / hors ligne) 
+Messagerie 
+• Envoi de message à un membre 
+• Réception en temps réel 
+• Consultation de l'historique 
+• Affichage des membres connectés 
+5. Modèle de données 
+User 
+Projet G2 — Messagerie pour Associations & Événements 
+Interne — 2 
+Interne 
+Champ Description 
+id Identifiant unique (auto-incrémenté) 
+username Nom d'utilisateur unique 
+password Mot de passe haché 
+role ORGANISATEUR, MEMBRE ou BENEVOLE 
+status ONLINE ou OFFLINE 
+dateCreation Date d'inscription 
+ 
+Message 
+Champ Description 
+id Identifiant unique (auto-incrémenté) 
+sender Utilisateur expéditeur (User) 
+receiver Utilisateur destinataire (User) 
+contenu Texte du message (max 1000 caractères) 
+dateEnvoi Date et heure d'envoi 
+statut ENVOYE, RECU ou LU 
+ 
+6. Règles de gestion 
+RG1 : Le username doit être unique. 
+RG2 : Un utilisateur doit être authentifié pour envoyer ou consulter des messages. 
+RG3 : Un utilisateur ne peut être connecté qu'une seule fois à la fois. 
+RG4 : À la connexion le statut devient ONLINE, à la déconnexion ou perte réseau il devient 
+OFFLINE. 
+RG5 : Un message ne peut être envoyé que si l'expéditeur est connecté et que le 
+destinataire existe. 
+RG6 : Si le destinataire est hors ligne, le message est enregistré et livré lors de sa 
+prochaine connexion. 
+RG7 : Le contenu du message ne doit pas être vide et ne doit pas dépasser 1000 
+caractères. 
+RG8 : L'historique des messages doit être affiché par ordre chronologique. 
+RG9 : Les mots de passe doivent être stockés sous forme hachée. 
+RG10 : En cas de perte de connexion au serveur, le client doit afficher une erreur et passer 
+hors ligne. 
+RG11 : Chaque client doit être géré dans un thread séparé côté serveur. 
+RG12 : Le serveur doit journaliser les connexions, déconnexions et envois de messages. 
+Projet G2 — Messagerie pour Associations & Événements 
+Interne — 3 
+Interne 
+RG13 : Un ORGANISATEUR peut consulter la liste complète des membres inscrits. 

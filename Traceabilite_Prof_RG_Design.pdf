@@ -1,0 +1,141 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 2 /Kids [4 0 R 6 0 R] >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 2723 >>
+stream
+BT
+/F1 10 Tf
+45 805 Td
+13 TL
+(Projet G2 - Traceabilite Exigences + Design) Tj
+T* (Version: 23/02/2026) Tj
+T* () Tj
+T* (A. Objectif de ce document) Tj
+T* (Ce PDF indique exactement ou chaque demande du prof est implementee dans le code.) Tj
+T* (Il sert de guide de lecture pour comprendre qui fait quoi, par partie.) Tj
+T* () Tj
+T* (B. Exigences fonctionnelles \(RG\) -> Emplacements code) Tj
+T* () Tj
+T* (RG1 Username unique) Tj
+T* (- src/main/java/org/example/projet_java/server/service/AuthService.java:31) Tj
+T* (- src/main/java/org/example/projet_java/server/model/User.java \(colonne unique username\)) Tj
+T* () Tj
+T* (RG2 Authentification obligatoire) Tj
+T* (- src/main/java/org/example/projet_java/server/ClientHandler.java:145) Tj
+T* (- src/main/java/org/example/projet_java/server/ClientHandler.java:188) Tj
+T* (- src/main/java/org/example/projet_java/server/ClientHandler.java \(isAuthenticated\)) Tj
+T* () Tj
+T* (RG3 Une seule session par utilisateur) Tj
+T* (- src/main/java/org/example/projet_java/server/service/AuthService.java:61) Tj
+T* (- src/main/java/org/example/projet_java/server/service/SessionRegistry.java) Tj
+T* (- src/main/java/org/example/projet_java/server/ClientHandler.java:105) Tj
+T* () Tj
+T* (RG4 ONLINE/OFFLINE a connexion/deconnexion/perte reseau) Tj
+T* (- src/main/java/org/example/projet_java/server/ClientHandler.java:105) Tj
+T* (- src/main/java/org/example/projet_java/server/ClientHandler.java:254) Tj
+T* (- src/main/java/org/example/projet_java/server/MainServeur.java:29) Tj
+T* () Tj
+T* (RG5 Envoi possible si expediteur connecte + destinataire existant) Tj
+T* (- src/main/java/org/example/projet_java/server/ClientHandler.java:145) Tj
+T* (- src/main/java/org/example/projet_java/server/service/MessageService.java:30) Tj
+T* () Tj
+T* (RG6 Destinataire offline -> message stocke puis livre a la reconnexion) Tj
+T* (- src/main/java/org/example/projet_java/server/service/MessageService.java:44) Tj
+T* (- src/main/java/org/example/projet_java/server/ClientHandler.java \(deliverPendingMessages\)) Tj
+T* () Tj
+T* (RG7 Message non vide et <= 1000 caracteres) Tj
+T* (- src/main/java/org/example/projet_java/server/service/MessageService.java:30) Tj
+T* (- src/main/java/org/example/projet_java/client/controller/MainController.java \(controle UI\)) Tj
+T* () Tj
+T* (RG8 Historique chronologique) Tj
+T* (- src/main/java/org/example/projet_java/server/service/MessageService.java:50) Tj
+T* (- src/main/java/org/example/projet_java/server/dao/MessageRepository.java \(ORDER BY timestamp ASC\)) Tj
+T* () Tj
+T* (RG9 Mot de passe hashe) Tj
+T* (- src/main/java/org/example/projet_java/server/service/AuthService.java:31) Tj
+T* (- BCrypt: hash a l inscription, verification au login) Tj
+T* () Tj
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 2439 >>
+stream
+BT
+/F1 10 Tf
+45 805 Td
+13 TL
+(RG10 Perte serveur -> client affiche erreur et passe hors ligne) Tj
+T* (- src/main/java/org/example/projet_java/client/controller/MainController.java \(onDisconnected + offline mode\)) Tj
+T* (- src/main/java/org/example/projet_java/server/MainServeur.java:29) Tj
+T* () Tj
+T* (RG11 Un thread serveur par client) Tj
+T* (- src/main/java/org/example/projet_java/server/MainServeur.java:33) Tj
+T* (- src/main/java/org/example/projet_java/server/MainServeur.java:45) Tj
+T* () Tj
+T* (RG12 Journalisation connexions/deconnexions/messages) Tj
+T* (- src/main/java/org/example/projet_java/server/ClientHandler.java \(LOGGER.info\)) Tj
+T* (- src/main/java/org/example/projet_java/server/MainServeur.java \(LOGGER serveur\)) Tj
+T* () Tj
+T* (RG13 Organisateur voit la liste complete) Tj
+T* (- src/main/java/org/example/projet_java/server/service/AuthService.java:74) Tj
+T* () Tj
+T* (C. Modele de donnees \(demande prof\)) Tj
+T* (- User: id, username, password\(hashe\), role, status, dateCreation) Tj
+T* (- Message: id, sender, recipient, content, timestamp, status\(ENVOYE/RECU/LU\)) Tj
+T* (- Fichiers: src/main/java/org/example/projet_java/server/model/User.java) Tj
+T* (- Fichiers: src/main/java/org/example/projet_java/server/model/Message.java) Tj
+T* (- Fichiers: src/main/java/org/example/projet_java/server/model/MessageStatus.java) Tj
+T* () Tj
+T* (D. Design et responsive \(separe des RG\)) Tj
+T* (- Style global premium: src/main/resources/styles/app.css) Tj
+T* (- Boutons top bar: refresh/theme/reconnect/deconnexion) Tj
+T* (  src/main/resources/fxml/main.fxml:32-35) Tj
+T* (- Modes responsive: phone/tablet/desktop) Tj
+T* (  src/main/resources/styles/app.css:360+) Tj
+T* (  src/main/java/org/example/projet_java/client/controller/MainController.java:434+) Tj
+T* (- Layout principal: sidebar/chat/admin panes) Tj
+T* (  src/main/resources/fxml/main.fxml:41,59) Tj
+T* () Tj
+T* (E. Commentaires dans le code) Tj
+T* (- Les fichiers Java contiennent des commentaires d entete par classe.) Tj
+T* (- Les zones critiques ont aussi des commentaires RGx \(auth, session, messages, threads\).) Tj
+T* () Tj
+T* (F. Comment lire le projet rapidement) Tj
+T* (1\) Commencer par MainServeur + ClientHandler \(flux protocole serveur\).) Tj
+T* (2\) Lire AuthService + MessageService \(regles metier\).) Tj
+T* (3\) Lire MainController \(comportement client et UI\).) Tj
+T* (4\) Lire app.css + main.fxml \(design/responsive\).) Tj
+ET
+endstream
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000127 00000 n 
+0000000197 00000 n 
+0000000323 00000 n 
+0000003097 00000 n 
+0000003223 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+5713
+%%EOF

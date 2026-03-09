@@ -1,0 +1,117 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 2 /Kids [4 0 R 6 0 R] >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 2309 >>
+stream
+BT
+/F1 11 Tf
+50 800 Td
+14 TL
+(Projet G2 - Messagerie pour Associations et Evenements) Tj
+T* () Tj
+T* (1\) Contexte) Tj
+T* (Le prof demande de realiser une application de messagerie interne pour une association.) Tj
+T* (Les membres doivent pouvoir communiquer en temps reel via une architecture client-serveur.) Tj
+T* (L application doit couvrir: authentification, envoi/reception de messages, sauvegarde en base,) Tj
+T* (et affichage des conversations dans une interface JavaFX.) Tj
+T* () Tj
+T* (2\) Technologies imposees) Tj
+T* (- Java 17 ou plus) Tj
+T* (- JavaFX pour l interface graphique) Tj
+T* (- Sockets Java \(ServerSocket, Socket\)) Tj
+T* (- Hibernate/JPA pour la persistance) Tj
+T* (- Base de donnees MySQL ou PostgreSQL) Tj
+T* (- Programmation Orientee Objet \(POO\)) Tj
+T* () Tj
+T* (3\) Architecture attendue) Tj
+T* (- Un serveur central qui gere les connexions clients, les sessions actives et les messages.) Tj
+T* (- Le serveur gere aussi l acces a la base de donnees \(utilisateurs + messages\).) Tj
+T* (- Un client JavaFX qui permet la connexion, la consultation des membres et la discussion.) Tj
+T* () Tj
+T* (4\) Fonctionnalites principales) Tj
+T* (Gestion des comptes:) Tj
+T* (- Inscription avec role: ORGANISATEUR, MEMBRE, BENEVOLE) Tj
+T* (- Connexion / deconnexion) Tj
+T* (- Gestion du statut: ONLINE / OFFLINE) Tj
+T* () Tj
+T* (Messagerie:) Tj
+T* (- Envoi de message a un membre) Tj
+T* (- Reception en temps reel) Tj
+T* (- Consultation de l historique) Tj
+T* (- Affichage des membres connectes) Tj
+T* () Tj
+T* (5\) Modele de donnees a respecter) Tj
+T* (Entite User:) Tj
+T* (- id \(auto-incremente\), username unique, password hashe, role, status, dateCreation) Tj
+T* () Tj
+T* (Entite Message:) Tj
+T* (- id \(auto-incremente\), sender \(User\), receiver \(User\), contenu \(max 1000\), dateEnvoi,) Tj
+T* (  statut \(ENVOYE, RECU, LU\)) Tj
+T* () Tj
+T* (6\) Regles de gestion \(RG\) demandees) Tj
+T* (RG1  username unique) Tj
+T* (RG2  authentification obligatoire pour envoyer/consulter) Tj
+T* (RG3  une seule connexion active par utilisateur) Tj
+T* (RG4  statut ONLINE a la connexion, OFFLINE a la deconnexion/perte reseau) Tj
+T* (RG5  envoi possible seulement si expediteur connecte et destinataire existant) Tj
+T* (RG6  message hors ligne: stocke puis livre a la prochaine connexion) Tj
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 1025 >>
+stream
+BT
+/F1 11 Tf
+50 800 Td
+14 TL
+(RG7  contenu non vide et <= 1000 caracteres) Tj
+T* (RG8  historique affiche par ordre chronologique) Tj
+T* (RG9  mots de passe stockes hashes) Tj
+T* (RG10 perte de connexion: erreur visible cote client + passage hors ligne) Tj
+T* (RG11 chaque client gere dans un thread serveur separe) Tj
+T* (RG12 journaliser connexions, deconnexions et envois de messages) Tj
+T* (RG13 ORGANISATEUR peut consulter toute la liste des membres inscrits) Tj
+T* () Tj
+T* (7\) Ce que tu dois montrer dans ton projet) Tj
+T* (- Le code client JavaFX et serveur socket fonctionnent ensemble.) Tj
+T* (- Les donnees sont persistantes via JPA/Hibernate dans la base.) Tj
+T* (- Les regles RG1 a RG13 sont visibles dans le comportement et/ou le code.) Tj
+T* (- Le lancement est reproductible \(scripts ou commandes claires\).) Tj
+T* () Tj
+T* (Resume:) Tj
+T* (Le prof attend une vraie application client-serveur de messagerie interne,) Tj
+T* (robuste, persistante, orientee objet, et conforme aux 13 regles de gestion.) Tj
+ET
+endstream
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000127 00000 n 
+0000000197 00000 n 
+0000000323 00000 n 
+0000002683 00000 n 
+0000002809 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R >>
+startxref
+3885
+%%EOF

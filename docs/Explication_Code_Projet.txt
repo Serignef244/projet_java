@@ -1,0 +1,149 @@
+EXPlication DU PROJET JAVA - GUIDE DE PRESENTATION
+
+1) VUE GLOBALE
+Le projet est une application de messagerie interne avec deux parties:
+- Client JavaFX (interfaces, controles, interactions utilisateur)
+- Serveur Java (authentification, sessions, messages, persistance)
+
+Flux principal:
+1. L'utilisateur ouvre l'application (welcome)
+2. Il se connecte ou s'inscrit
+3. Le client ouvre une connexion socket au serveur
+4. Le serveur valide, envoie la liste des utilisateurs, puis les messages
+5. Le client affiche l'historique et les nouveaux messages en temps reel
+
+2) PARTIES CLIENT A EXPLIQUER
+
+A. AppContext.java
+Role:
+- Centralise l'etat global client (utilisateur connecte, role, theme, connexion reseau)
+- Gere la navigation entre ecrans JavaFX
+- Applique le CSS et l'animation de transition
+A expliquer en oral:
+- Pourquoi un contexte global simplifie la navigation
+- Comment showWelcome/showLogin/showRegister/showMain chargent les FXML
+- Comment toggleTheme applique le mode sombre
+
+B. WelcomeController.java
+Role:
+- Ecran d'accueil
+- Boutons de navigation vers connexion/inscription
+A expliquer:
+- Controleur minimal: il delegue tout a AppContext
+
+C. LoginController.java
+Role:
+- Gere la connexion utilisateur
+- Valide les champs avant appel serveur
+- Recoit les evenements serveur (success, error, disconnect)
+Points clefs:
+- onLogin(): validation + envoi de la requete login
+- ensureConnected(): cree/reutilise la connexion socket
+- onLoginSuccess(): passe a l'ecran principal et transfere le listener
+- shake(): feedback visuel en cas d'erreur
+
+D. RegisterController.java
+Role:
+- Gere l'inscription
+- Verifie coherence des champs (mot de passe/confimation)
+Points clefs:
+- onSubmitRegistration(): validation + envoi REGISTER
+- onRegisterSuccess(): retour login avec message flash
+
+E. MainController.java
+Role:
+- Coeur de la messagerie
+- Gere les membres, conversations, envoi/reception, mode offline et reconnexion
+Sections importantes a presenter:
+- initialize(): prepare l'ecran et les listeners
+- onSendMessage(): verifications metier avant envoi
+- onUsersReceived(): met a jour la liste des membres
+- onMessageReceived(): route le message vers la bonne conversation
+- onHistoryReceived(): recharge l'historique d'un interlocuteur
+- onDisconnected() + attemptReconnect(): resilence reseau
+- configureUserList()/configureMessageList(): rendu personnalise des ListView
+- applyResponsiveLayout(): adaptation mobile/tablette/desktop
+
+3) PARTIES INTERFACE (FXML/CSS)
+
+A. FXML
+- fxml/welcome.fxml: ecran d'entree
+- fxml/login.fxml: formulaire de connexion
+- fxml/register.fxml: formulaire inscription
+- fxml/main.fxml: structure a 3 panneaux (membres, chat, administration)
+
+B. CSS
+- styles/app.css: theme global (couleurs, cartes, boutons, bulles, responsive)
+A expliquer:
+- Variables de theme dans .root
+- Class dark-mode
+- Classes card/slide-container pour la separation visuelle des panneaux
+
+4) PARTIES RESEAU ET PROTOCOLE
+
+A. ServerConnection.java (client)
+Role:
+- Ouvre la socket
+- Envoie les commandes protocole (login, register, message, users, history)
+- Lit les reponses serveur et notifie le listener
+
+B. ServerEventListener.java
+Role:
+- Interface de callbacks utilises par les controllers
+Exemples:
+- onLoginSuccess
+- onUsersReceived
+- onMessageReceived
+- onDisconnected
+
+C. Protocol.java
+Role:
+- Definit les codes de commandes/evenements partages client-serveur
+
+5) PARTIES SERVEUR A EXPLIQUER
+
+A. MainServeur.java
+- Demarrage du serveur et ecoute sur le port
+
+B. ClientHandler.java
+- Un thread par client
+- Parse les commandes recues
+- Appelle les services metier
+
+C. Services
+- AuthService: login/inscription
+- MessageService: envoi, historique, statut de message
+- SessionRegistry: clients connectes et routage des notifications
+
+D. DAO + Model + JPA
+- UserRepository / MessageRepository: acces base
+- User / Message: entites JPA
+- persistence.xml: configuration JPA
+
+6) PLAN D'EXPLICATION ORALE (PROPOSE)
+
+1. Architecture generale (client, serveur, base)
+2. Navigation ecrans et role de AppContext
+3. Cycle connexion utilisateur (LoginController)
+4. Cycle message (MainController + ServerConnection)
+5. Gestion d'erreur: offline/reconnexion
+6. Persistance et historique (MessageService + Repository)
+7. UI/UX: FXML + CSS + responsive
+
+7) POINTS TECHNIQUES A RETENIR
+
+- Separation des responsabilites: FXML (vue), Controller (logique UI), Service/DAO (metier)
+- Programmation evenementielle avec callbacks listener
+- Synchronisation UI JavaFX avec Platform.runLater quand necessaire
+- Robustesse reseau: mode offline + tentative de reconnexion
+- Presentation propre: classes CSS reutilisables et theme clair/sombre
+
+8) FICHIERS COMMENTES DANS CETTE VERSION
+
+- src/main/java/org/example/projet_java/client/AppContext.java
+- src/main/java/org/example/projet_java/client/controller/WelcomeController.java
+- src/main/java/org/example/projet_java/client/controller/LoginController.java
+- src/main/java/org/example/projet_java/client/controller/RegisterController.java
+- src/main/java/org/example/projet_java/client/controller/MainController.java
+
+FIN DU DOCUMENT
