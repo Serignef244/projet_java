@@ -1,0 +1,5 @@
+lancer le server:
+./mvnw.cmd --% -DskipTests -Dexec.mainClass=server.MainServeur exec:java
+
+
+mvn javafx:run
